@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update My Garden's Information | NYC Mayor's Office of Urban Agriculture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #eef1f5;
+      color: #222;
+    }
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      margin: 0 0 0.75rem;
+      line-height: 1.5;
+    }
+    form {
+      margin-top: 1.5rem;
+    }
+    .field-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      max-width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+    .inline-hint {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 2px;
+    }
+    .checkbox-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .checkbox-row label {
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .two-column .column {
+      flex: 1 1 260px;
+    }
+    .section-note {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    button {
+      padding: 8px 18px;
+      background-color: #0033a0;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+    button:hover {
+      background-color: #002570;
+    }
+    .small-note {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <h1>Update My Garden's Information</h1>
+    <p>
+      Are you a garden or farm with fresh food to share? Use this form to update your information.
+      The details you provide will help neighbors, community organizations, and city partners find you
+      on the “Find Fresh Food Near You” list.
+    </p>
+
+    <form>
+      <!-- BASIC SITE INFO -->
+      <h2>1. Garden or Farm Details</h2>
+
+      <div class="field-group">
+        <label for="site-name">Garden or farm name</label>
+        <input id="site-name" type="text" placeholder="Example: Sunrise Community Garden">
+      </div>
+
+      <div class="field-group">
+        <label for="site-address">Street address</label>
+        <input id="site-address" type="text" placeholder="Street address, city, ZIP">
+      </div>
+
+      <div class="two-column">
+        <div class="column">
+          <div class="field-group">
+            <label for="borough">Borough</label>
+            <select id="borough">
+              <option value="">Select borough</option>
+              <option>Bronx</option>
+              <option>Brooklyn</option>
+              <option>Manhattan</option>
+              <option>Queens</option>
+              <option>Staten Island</option>
+            </select>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field-group">
+            <label for="site-type">Site type</label>
+            <select id="site-type">
+              <option value="">Select type</option>
+              <option>Community garden</option>
+              <option>School garden</option>
+              <option>Urban farm</option>
+              <option>Backyard/rooftop garden</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOURS -->
+      <h2>2. Garden Hours (When is your site open?)</h2>
+      <p class="section-note">
+        Please share the hours when people can visit your site or pick up food.
+      </p>
+      <div class="field-group">
+        <label for="hours-description">Hours description</label>
+        <textarea id="hours-description" placeholder="Example: Saturdays 10am–2pm; Wednesdays 4–7pm for harvest pick-ups only."></textarea>
+      </div>
+
+      <!-- FOOD AVAILABILITY -->
+      <h2>3. Fresh Food Availability</h2>
+      <p class="section-note">
+        Tell us what you have and when it is available. You can update this information as often as needed.
+      </p>
+
+      <div class="field-group">
+        <label>Availability timing</label>
+        <div class="checkbox-row">
+          <label><input type="checkbox" name="availability-timing" value="now"> Available now</label>
+          <label><input type="checkbox" name="availability-timing" value="week"> This week</label>
+          <label><input type="checkbox" name="availability-timing" value="soon"> Coming soon (in the next 2–4 weeks)</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>Food types (check all that apply)</label>
+        <div class="checkbox-row">
+          <label><input type="checkbox" name="food-type" value="fresh-vegetables"> Fresh vegetables</label>
+          <label><input type="checkbox" name="food-type" value="fresh-fruit"> Fresh fruit</label>
+          <label><input type="checkbox" name="food-type" value="herbs"> Herbs</label>
+          <label><input type="checkbox" name="food-type" value="prepared-food"> Prepared food</label>
+          <label><input type="checkbox" name="food-type" value="other"> Other</label>
+        </div>
+        <div class="inline-hint">
+          These options match the filters residents can use on the “Find Fresh Food Near You” page.
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="food-types">What do you currently have or expect to have?</label>
+        <textarea id="food-types" placeholder="Example: kale, collards, lettuce, tomatoes, herbs, apples, etc."></textarea>
+      </div>
+
+      <div class="field-group">
+        <label>On which days do you usually offer food? (check all that apply)</label>
+        <div class="checkbox-row">
+          <label><input type="checkbox" name="food-day" value="monday"> Monday</label>
+          <label><input type="checkbox" name="food-day" value="tuesday"> Tuesday</label>
+          <label><input type="checkbox" name="food-day" value="wednesday"> Wednesday</label>
+          <label><input type="checkbox" name="food-day" value="thursday"> Thursday</label>
+          <label><input type="checkbox" name="food-day" value="friday"> Friday</label>
+          <label><input type="checkbox" name="food-day" value="saturday"> Saturday</label>
+          <label><input type="checkbox" name="food-day" value="sunday"> Sunday</label>
+        </div>
+        <div class="inline-hint">
+          This helps people filter by days of the week when they can pick up food.
+        </div>
+      </div>
+
+      <!-- REFRIGERATION / COLD STORAGE -->
+      <h2>4. Refrigeration / Cold Storage</h2>
+      <p class="section-note">
+        This helps people understand where cold storage is available and how it can be used.
+      </p>
+
+      <div class="field-group">
+        <label>Do you have any refrigeration or cold storage on site?</label>
+        <div class="checkbox-row">
+          <label><input type="radio" name="cold-storage" value="yes"> Yes</label>
+          <label><input type="radio" name="cold-storage" value="no"> No</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="cold-details">If yes, please describe</label>
+        <textarea id="cold-details" placeholder="Example: 1 community fridge accessible 24/7; or pantry fridge, only accessible to partner organization."></textarea>
+      </div>
+
+      <!-- EVENTS -->
+      <h2>5. Events and Activities</h2>
+      <p class="section-note">
+        Share any upcoming events or activities related to food distribution, education, or community engagement.
+      </p>
+
+      <div class="field-group">
+        <label for="events">Upcoming events</label>
+        <textarea id="events" placeholder="Example: Harvest festival on Sept 15; weekly cooking demo on Thursdays."></textarea>
+      </div>
+
+      <!-- VOLUNTEERS -->
+      <h2>6. Volunteers</h2>
+      <p class="section-note">
+        Let people know if you welcome volunteers and when.
+      </p>
+
+      <div class="field-group">
+        <label>Do you need volunteers?</label>
+        <div class="checkbox-row">
+          <label><input type="radio" name="volunteers" value="yes"> Yes</label>
+          <label><input type="radio" name="volunteers" value="no"> No</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="volunteer-details">Volunteer days / roles</label>
+        <textarea id="volunteer-details" placeholder="Example: Volunteer days Saturdays 9am–12pm for weeding, planting, and harvest."></textarea>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <h2>7. Contact Information</h2>
+
+      <div class="field-group">
+        <label for="contact-name">Main contact name</label>
+        <input id="contact-name" type="text" placeholder="Name of main contact person">
+      </div>
+
+      <div class="two-column">
+        <div class="column">
+          <div class="field-group">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" type="email" placeholder="email@example.org">
+          </div>
+        </div>
+        <div class="column">
+          <div class="field-group">
+            <label for="contact-phone">Phone number</label>
+            <input id="contact-phone" type="tel" placeholder="Optional phone number">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="website-social">Website or social media (optional)</label>
+        <input id="website-social" type="text" placeholder="Website, Instagram, Facebook, etc.">
+      </div>
+
+      <!-- MOBILITY ACCESS -->
+      <h2>8. Mobility and Accessibility</h2>
+      <p class="section-note">
+        This helps visitors understand how accessible your site is.
+      </p>
+
+      <div class="field-group">
+        <label>Which of these apply to your site?</label>
+        <div class="checkbox-row">
+          <label><input type="checkbox" name="access" value="wheelchair"> Wheelchair-accessible entrance</label>
+          <label><input type="checkbox" name="access" value="paths"> Paved or even pathways</label>
+          <label><input type="checkbox" name="access" value="seating"> Seating available</label>
+          <label><input type="checkbox" name="access" value="restroom"> Accessible restroom (on site or nearby)</label>
+          <label><input type="checkbox" name="access" value="not-accessible"> Not fully accessible</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="access-notes">Accessibility notes</label>
+        <textarea id="access-notes" placeholder="Example: Slight slope at entrance; narrow gate; one step into main garden area."></textarea>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="field-group">
+        <button type="submit">Submit updates</button>
+        <p class="small-note">
+          After you submit, it may take a short time for your information to be reviewed and added
+          to the public “Find Fresh Food Near You” page.
+        </p>
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>

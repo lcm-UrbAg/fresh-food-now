@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Fresh Food Near You | NYC Mayor's Office of Urban Agriculture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Basic polished style – you can tweak colors to match NYC branding */
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #eef1f5;
+      color: #222;
+    }
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      margin: 0 0 0.75rem;
+      line-height: 1.5;
+    }
+    .section {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dde2e8;
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+    label {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    input[type="text"] {
+      padding: 6px 8px;
+      min-width: 220px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 8px;
+    }
+    .filter-group {
+      min-width: 200px;
+    }
+    .filter-group p {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .filter-group label {
+      font-weight: 400;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .results-container {
+      margin-top: 12px;
+      border: 1px solid #ccc;
+      background-color: #fafafa;
+      max-height: 480px;
+      overflow-y: auto;
+      padding: 8px;
+    }
+    .site-card {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 8px 4px;
+      font-size: 0.9rem;
+    }
+    .site-card:last-child {
+      border-bottom: none;
+    }
+    .site-name {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .chip {
+      display: inline-block;
+      padding: 2px 6px;
+      margin-right: 4px;
+      margin-top: 2px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      background-color: #e0f2f1;
+      color: #004d40;
+    }
+    .cta-box {
+      margin-top: 16px;
+      padding: 12px;
+      background-color: #f0f4ff;
+      border-left: 4px solid #0033a0;
+    }
+    .cta-box h3 {
+      margin-top: 0;
+      margin-bottom: 4px;
+      font-size: 1.1rem;
+    }
+    .cta-box p {
+      margin-bottom: 8px;
+    }
+    .small-note {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 6px;
+    }
+    button {
+      padding: 8px 18px;
+      background-color: #0033a0;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    button:hover {
+      background-color: #002570;
+    }
+    @media (max-width: 768px) {
+      .filters {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <h1>Find Fresh Food Near You</h1>
+    <p>
+      Use this page to find community gardens and farms in New York City that have fresh food to offer
+      now or soon. Gardens share their hours, what they are offering, whether they have refrigeration,
+      which days they offer food, and basic accessibility information.
+    </p>
+
+    <!-- STEP 1: LOCATION -->
+    <div class="section">
+      <h2>Step 1 – Enter Your Neighborhood or ZIP</h2>
+      <div class="form-row">
+        <label for="location-input">Neighborhood or ZIP</label>
+        <input id="location-input" type="text" placeholder="Example: 10027 or Harlem">
+        <button type="button">Filter</button>
+      </div>
+      <p class="small-note">
+        For now, this filter is text-based. You can also browse the list below without entering a location.
+      </p>
+    </div>
+
+    <!-- STEP 2: FILTERS -->
+    <div class="section">
+      <h2>Step 2 – Filter What You Need</h2>
+      <div class="filters">
+        <div class="filter-group">
+          <p>Availability</p>
+          <label><input type="checkbox"> Available now</label>
+          <label><input type="checkbox"> This week</label>
+          <label><input type="checkbox"> Coming soon</label>
+        </div>
+        <div class="filter-group">
+          <p>Food types</p>
+          <label><input type="checkbox"> Fresh vegetables</label>
+          <label><input type="checkbox"> Fresh fruit</label>
+          <label><input type="checkbox"> Herbs</label>
+          <label><input type="checkbox"> Prepared food</label>
+          <label><input type="checkbox"> Other</label>
+        </div>
+        <div class="filter-group">
+          <p>Refrigeration</p>
+          <label><input type="checkbox"> Has refrigerator / cold storage</label>
+          <label><input type="checkbox"> No refrigeration</label>
+        </div>
+        <div class="filter-group">
+          <p>Days of the week</p>
+          <label><input type="checkbox"> Monday</label>
+          <label><input type="checkbox"> Tuesday</label>
+          <label><input type="checkbox"> Wednesday</label>
+          <label><input type="checkbox"> Thursday</label>
+          <label><input type="checkbox"> Friday</label>
+          <label><input type="checkbox"> Saturday</label>
+          <label><input type="checkbox"> Sunday</label>
+        </div>
+      </div>
+      <p class="small-note">
+        In this first version, filters are visual only; the city can later connect them to a database search.
+      </p>
+    </div>
+
+    <!-- RESULTS LIST -->
+    <div class="section">
+      <h2>Step 3 – Browse Gardens and Farms</h2>
+      <div class="results-container">
+        <!-- Sample entries for demo purposes -->
+        <div class="site-card">
+          <div class="site-name">Sunrise Community Garden</div>
+          <div>123 Example St, Bronx, NY 10451</div>
+          <div><strong>Borough:</strong> Bronx</div>
+          <div><strong>Availability:</strong> Available now (through March 16)</div>
+          <div><strong>Food:</strong> Leafy greens, carrots, herbs</div>
+          <div><strong>Refrigeration:</strong> Yes (community fridge on site)</div>
+          <div><strong>Hours:</strong> Saturdays 10am–2pm; Wednesdays 4–7pm</div>
+          <div><strong>Days offering food:</strong> Wednesday, Saturday</div>
+          <div><strong>Access:</strong> Open to public during posted hours</div>
+          <div><strong>Accessibility:</strong> Wheelchair-accessible entrance; seating available</div>
+          <div><strong>Contact:</strong> sunrisegarden@example.org</div>
+          <div>
+            <span class="chip">Available now</span>
+            <span class="chip">Fresh vegetables</span>
+            <span class="chip">Herbs</span>
+            <span class="chip">Has fridge</span>
+            <span class="chip">Wed</span>
+            <span class="chip">Sat</span>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-name">Harbor View Farm</div>
+          <div>456 Waterfront Ave, Staten Island, NY 10304</div>
+          <div><strong>Borough:</strong> Staten Island</div>
+          <div><strong>Availability:</strong> This week (March 14–18)</div>
+          <div><strong>Food:</strong> Kale, collards, apples</div>
+          <div><strong>Refrigeration:</strong> No</div>
+          <div><strong>Hours:</strong> Sundays 11am–3pm</div>
+          <div><strong>Days offering food:</strong> Sunday</div>
+          <div><strong>Access:</strong> Open to public on Sundays</div>
+          <div><strong>Accessibility:</strong> Not fully accessible (gravel paths)</div>
+          <div><strong>Contact:</strong> harborviewfarm@example.org</div>
+          <div>
+            <span class="chip">This week</span>
+            <span class="chip">Fresh vegetables</span>
+            <span class="chip">Fresh fruit</span>
+            <span class="chip">Sun</span>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-name">Neighborhood Pantry Garden</div>
+          <div>789 Community Way, Queens, NY 11101</div>
+          <div><strong>Borough:</strong> Queens</div>
+          <div><strong>Availability:</strong> Coming soon (harvest in 2 weeks)</div>
+          <div><strong>Food:</strong> Tomatoes, peppers</div>
+          <div><strong>Refrigeration:</strong> Yes (pantry fridge, partner access only)</div>
+          <div><strong>Hours:</strong> By appointment via partner pantry</div>
+          <div><strong>Days offering food:</strong> Varies (check with pantry)</div>
+          <div><strong>Access:</strong> Food distributed through partner food pantry</div>
+          <div><strong>Accessibility:</strong> Narrow gate; one step into garden</div>
+          <div><strong>Contact:</strong> pantrygarden@example.org</div>
+          <div>
+            <span class="chip">Coming soon</span>
+            <span class="chip">Fresh vegetables</span>
+            <span class="chip">Has fridge (limited)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GARDEN CTA -->
+    <div class="section">
+      <div class="cta-box">
+        <h3>Are you a garden or farm with fresh food to share?</h3>
+        <p>
+          You can list what food you have, when it is available, which days of the week you offer food,
+          and whether you have refrigeration or cold storage. This helps neighbors and community
+          organizations find you.
+        </p>
+        <button type="button" onclick="window.location.href='update-garden-info.html'">
+          Update my garden’s information
+        </button>
+        <p class="small-note">
+          This will take you to a simple form where you can update your details. Information you provide
+          will appear on this list after it is reviewed.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
